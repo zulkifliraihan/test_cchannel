@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Influencer;
+use App\Notifications\BlastEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // dd("ha");
+    Influencer::find(1)->notify(new BlastEmail());
+
+    return "Done";
 });
